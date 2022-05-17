@@ -2,10 +2,18 @@ package main
 
 import (
 	"fmt"
+	"log"
 
-	"rsc.io/quote"
+	"github.com/Xebec19/miniature-fiesta/greetings"
 )
 
 func main() {
-	fmt.Println(quote.Go())
+	log.SetPrefix("greetings:")
+	log.SetFlags(0)
+	names := []string{"Gladys", "Samantha", "Darring"}
+	message, err := greetings.Hellos(names)
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Println(message)
 }
